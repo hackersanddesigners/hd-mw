@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 
 let
-  db_config = builtins.fromTOML(builtins.readFile ./.env.toml);
+  env = builtins.fromTOML(builtins.readFile ./.env.toml);
 in
 
 {
@@ -35,7 +35,7 @@ memory_limit = 256M
   };
 
   services.caddy.enable = true;
-  services.caddy.virtualHosts."http://localhost:8000" = {
+  services.caddy.virtualHosts."${env.web.localhost}" = {
     extraConfig = ''
       root * w
       php_fastcgi unix/${config.languages.php.fpm.pools.web.socket}
@@ -47,14 +47,14 @@ memory_limit = 256M
   services.mysql.package = pkgs.mariadb;
 
   services.mysql.initialDatabases = [
-    { name = db_config.name; schema = ./${db_config.schema}; }
+    { name = env.db.name; schema = ./${env.db.schema}; }
   ];
   services.mysql.ensureUsers = [
     {
-      name = db_config.user;
-      password = db_config.pw;
+      name = env.db.user;
+      password = env.db.pw;
       ensurePermissions = {
-        "${db_config.name}.*" = "SELECT, UPDATE, INSERT, DELETE, ALTER, CREATE, INDEX, DROP, LOCK TABLES, USAGE";
+        ${env.db.name}.*" = "SELECT, UPDATE, INSERT, DELETE, ALTER, CREATE, INDEX, DROP, LOCK TABLES, USAGE";
       };
     }
   ];
