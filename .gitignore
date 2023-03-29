@@ -1,0 +1,8 @@
+.DS_Store
+*.sql
+w
+
+.devenv*
+devenv.local.nix
+
+.env*
