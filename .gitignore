@@ -6,3 +6,5 @@ w
 devenv.local.nix
 
 .env*
+
+backups
