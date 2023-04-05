@@ -54,7 +54,7 @@ memory_limit = 256M
       name = env.db.user;
       password = env.db.pw;
       ensurePermissions = {
-        ${env.db.name}.*" = "SELECT, UPDATE, INSERT, DELETE, ALTER, CREATE, INDEX, DROP, LOCK TABLES, USAGE";
+        "${env.db.name}.*" = "SELECT, UPDATE, INSERT, DELETE, ALTER, CREATE, INDEX, DROP, LOCK TABLES, USAGE";
       };
     }
   ];
