@@ -10,7 +10,7 @@ we're gonna setup:
 
 ## setup
 
-first of all, fetch a copy of [MediaWiki](https://www.mediawiki.org/wiki/Download) and put it under a folder named `w` (as per MW instructions):
+first of all, fetch a copy of [MediaWiki](https://www.mediawiki.org/wiki/Download) and put it under a folder named `w` (as per MW instructions). We reccommend to stick with git as a versioning mechanism for this `w` directory as well (as a submodule of this directory). Follow [these instructions](https://www.mediawiki.org/wiki/Download_from_Git#Download_a_stable_branch) to handle version mediawiki with git.
 
 then: the configuration in `devenv.nix` defines the development environment.
 

@@ -43,20 +43,24 @@ memory_limit = 256M
     '';
   };
 
-  services.mysql.enable = true;
-  services.mysql.package = pkgs.mariadb;
+  # services.mysql.enable = true;
+  # services.mysql.package = pkgs.mariadb;
 
-  services.mysql.initialDatabases = [
-    { name = env.db.name; schema = ./${env.db.schema}; }
-  ];
-  services.mysql.ensureUsers = [
-    {
-      name = env.db.user;
-      password = env.db.pw;
-      ensurePermissions = {
-        "${env.db.name}.*" = "SELECT, UPDATE, INSERT, DELETE, ALTER, CREATE, INDEX, DROP, LOCK TABLES, USAGE";
-      };
-    }
-  ];
+  # services.mysql.initialDatabases = [
+  #   {
+  #     name = env.db.name;
+  #     schema = ./${env.db.schema};
+  #   }
+  # ];
+
+  # services.mysql.ensureUsers = [
+  #   {
+  #     name = env.db.user;
+  #     password = env.db.pw;
+  #     ensurePermissions = {
+  #       "${env.db.name}.*" = "SELECT, UPDATE, INSERT, DELETE, ALTER, CREATE, INDEX, DROP, LOCK TABLES, USAGE";
+  #     };
+  #   }
+  # ];
 
 }
