@@ -61,7 +61,6 @@ then we need to restore all this data:
 - import database
 - copy images folder
 - copy `LocalSettings.php`
-
 #### import db data
 
 open another terminal and do:
@@ -73,6 +72,11 @@ open another terminal and do:
 #### copy images folder and LocalSettings
 
 simply copy over the images folder and `LocalSettings.php` into the MediaWiki folder.
+
+
+#### Semantic Mediawiki Desintallation
+
+https://www.semantic-mediawiki.org/wiki/Help:Deinstallation
 
 ## todo
 
