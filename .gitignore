@@ -8,3 +8,5 @@ devenv.local.nix
 .env*
 
 backups
+
+.secrets.php
